@@ -27,7 +27,7 @@ export  function Navbar() {
             scrolled ? "text-gray-900" : "text-white"
           }`}
         >
-          Visualisai
+          Magnified
         </div>
 
         {/* Links */}

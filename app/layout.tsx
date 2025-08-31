@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Visualis.ai",
+  title: "Magnified - AI Based Text to AI models",
   description: "a saas",
 };
 
