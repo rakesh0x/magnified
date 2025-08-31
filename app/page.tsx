@@ -15,10 +15,13 @@ export default function Home() {
         <AnimatedGradientTextDemo />
 
         <AuroraTextDemo />
-        <p className="text-lg font-sans-serif text-neutral-300 max-w-lg text-center text-white leading-relaxed ml-90">
-          Upload your selfies and instantly generate AI-powered portraits,
-          headshots, and creative models.
+        <p className="text-base md:text-lg font-medium text-neutral-300 max-w-2xl ml-70 text-center leading-relaxed tracking-wide">
+          Upload your selfies and instantly generate
+          <span className="text-white font-semibold"> AI-powered portraits</span>,{" "}
+          <span className="text-white font-semibold">headshots</span>, and{" "}
+          <span className="text-white font-semibold">creative models</span>.
         </p>
+
         <InputDemo />
       </div>
     </SpotlightNewDemo>
