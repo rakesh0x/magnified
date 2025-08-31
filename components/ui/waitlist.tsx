@@ -1,18 +1,62 @@
-import { Input } from "@/components/ui/input"
-import { Button } from "./button"
-
+"use client";
+import { useState } from "react";
+import { Button } from "./button";
+import { Toaster, toast } from 'sonner';
 
 export function InputDemo() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+        setEmail("");
+        toast.success("Joined the waitlist! 🎉"); // Show toast here
+      } else {
+        toast.error("Something went wrong. Please try again."); // Optional error toast
+      }
+    } catch (err) {
+      toast.error("Network error. Please try again."); // Optional error toast
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="mt-10 flex w-full max-w-md h-18 items-center rounded-md border ml-100 border-gray-700 bg-black/40 backdrop-blur-md shadow-lg overflow-hidden">
-      <input
-        type="email"
-        placeholder="Enter your email"
-        className="flex-1 px-4 py-3 bg-transparent text-md text-white placeholder-gray-400 focus:outline-none"
-      />
-      <Button variant="default" className="px-5 py-3 bg-pink-500 hover:bg-pink-600 h-13 text-md mr-3 text-white font-medium transition-colors">
-        Join the waitlist
-      </Button>
-    </div>
-  )
+    <>
+      <Toaster /> {/* Render this once */}
+      <form
+        onSubmit={handleSubmit}
+        className="mt-10 flex w-full max-w-lg items-center rounded-md border border-gray-700 bg-black/40 backdrop-blur-md shadow-lg overflow-hidden ml-90"
+      >
+        <input
+          type="email"
+          required
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="flex-1 px-4 py-4 bg-transparent text-lg text-white placeholder-gray-400 focus:outline-none"
+        />
+        <Button
+          type="submit"
+          variant="default"
+          disabled={loading}
+          className="px-6 py-4 bg-pink-500 hover:bg-pink-600 text-md text-white font-medium transition-colors mr-2"
+        >
+          {loading ? "..." : success ? "Joined" : "Join the waitlist"}
+        </Button>
+      </form>
+    </>
+  );
 }
