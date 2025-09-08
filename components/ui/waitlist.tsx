@@ -38,7 +38,7 @@ export function InputDemo() {
       <Toaster /> {/* Render this once */}
       <form
         onSubmit={handleSubmit}
-        className="mt-10 flex w-full max-w-lg items-center rounded-md border border-gray-700 bg-black/40 backdrop-blur-md shadow-lg overflow-hidden ml-90"
+        className="mt-10 flex w-full max-w-lg items-center rounded-md border border-gray-700 bg-black/40 backdrop-blur-md shadow-lg overflow-hidden mx-auto"
       >
         <input
           type="email"
@@ -52,7 +52,7 @@ export function InputDemo() {
           type="submit"
           variant="default"
           disabled={loading}
-          className="px-6 py-4 bg-pink-500 hover:bg-pink-600 text-md text-white font-medium transition-colors mr-2"
+          className="px-8 py-4 bg-pink-500 hover:bg-pink-600 text-lg text-white font-bold transition-colors"
         >
           {loading ? "..." : success ? "Joined" : "Join the waitlist"}
         </Button>

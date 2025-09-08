@@ -1,1 +1,1 @@
-An AI Based 
+The Magnified 
