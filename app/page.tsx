@@ -10,19 +10,26 @@ export default function Home() {
       {/* Fixed Navbar */}
       <Navbar />
 
-      {/* Hero section (true center + avoids overlap) */}
-      <div className="flex mb-30 flex-col justify-center h-screen w-full gap-6 px-4 pt-24">
+      {/* Hero Section */}
+      <div className="flex flex-col justify-center min-h-screen w-full gap-6 px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32">
+        {/* Animated Intro */}
         <AnimatedGradientTextDemo />
 
+        {/* Aurora Subheading */}
         <AuroraTextDemo />
-        <p className="text-base md:text-lg font-medium text-neutral-300 max-w-2xl ml-70 text-center leading-relaxed tracking-wide">
-          Upload your selfies and instantly generate
-          <span className="text-white font-semibold"> AI-powered portraits</span>,{" "}
+
+        {/* Description */}
+        <p className="text-base sm:text-lg font-medium text-neutral-300 max-w-2xl mx-auto text-center leading-relaxed tracking-wide">
+          Upload your selfies and instantly generate{" "}
+          <span className="text-white font-semibold">AI-powered portraits</span>,{" "}
           <span className="text-white font-semibold">headshots</span>, and{" "}
           <span className="text-white font-semibold">creative models</span>.
         </p>
 
-        <InputDemo />
+        {/* Waitlist / Input */}
+        <div className="mx-auto w-full max-w-md ml-20">
+          <InputDemo />
+        </div>
       </div>
     </SpotlightNewDemo>
   );
