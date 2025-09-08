@@ -11,7 +11,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="flex flex-col justify-center min-h-screen w-full gap-6 px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32">
+      <div className="flex flex-col justify-center items-center h-screen w-full gap-6 px-4 sm:px-6 lg:px-8 text-center">
         {/* Animated Intro */}
         <AnimatedGradientTextDemo />
 
@@ -19,15 +19,23 @@ export default function Home() {
         <AuroraTextDemo />
 
         {/* Description */}
-        <p className="text-base sm:text-lg font-medium text-neutral-300 max-w-2xl mx-auto text-center leading-relaxed tracking-wide">
+        <p className="text-base sm:text-lg font-medium text-gray-700 dark:text-neutral-300 max-w-2xl leading-relaxed tracking-wide">
           Upload your selfies and instantly generate{" "}
-          <span className="text-white font-semibold">AI-powered portraits</span>,{" "}
-          <span className="text-white font-semibold">headshots</span>, and{" "}
-          <span className="text-white font-semibold">creative models</span>.
+          <span className="text-black dark:text-white font-semibold">
+            AI-powered portraits
+          </span>
+          ,{" "}
+          <span className="text-black dark:text-white font-semibold">
+            headshots
+          </span>
+          , and{" "}
+          <span className="text-black dark:text-white font-semibold">
+            creative models
+          </span>.
         </p>
 
         {/* Waitlist / Input */}
-        <div className="mx-auto w-full max-w-md ml-20">
+        <div className="w-full max-w-md">
           <InputDemo />
         </div>
       </div>
