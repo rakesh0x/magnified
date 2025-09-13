@@ -28,7 +28,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/magnified.png" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={` bg-[#0a0a0a] ${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Analytics/>
           {children}
       </body>

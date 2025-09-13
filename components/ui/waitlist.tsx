@@ -22,12 +22,12 @@ export function InputDemo() {
       if (res.ok) {
         setSuccess(true);
         setEmail("");
-        toast.success("Joined the waitlist! 🎉"); // Show toast here
+        toast.success("Joined the waitlist! 🎉"); 
       } else {
-        toast.error("Something went wrong. Please try again."); // Optional error toast
+        toast.error("Something went wrong. Please try again."); 
       }
     } catch (err) {
-      toast.error("Network error. Please try again."); // Optional error toast
+      toast.error("Network error. Please try again."); 
     } finally {
       setLoading(false);
     }
@@ -35,7 +35,7 @@ export function InputDemo() {
 
   return (
     <>
-      <Toaster /> {/* Render this once */}
+      <Toaster /> 
       <form
         onSubmit={handleSubmit}
         className="mt-10 flex w-full max-w-lg items-center rounded-md border border-gray-700 bg-black/40 backdrop-blur-md shadow-lg overflow-hidden mx-auto"
