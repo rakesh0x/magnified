@@ -3,6 +3,12 @@ import { Navbar } from "@/components/ui/navbar";
 import { AuroraTextDemo } from "@/components/magicui/aurora";
 import { InputDemo } from "@/components/ui/waitlist";
 import { AnimatedGradientTextDemo } from "@/components/magicui/Animatedintro";
+import { Poppins, Inter, Geist } from "next/font/google";
+
+const poppins = Poppins({ 
+  subsets: ["latin"],
+  weight: ["400", "700"]
+})
 
 export default function Home() {
   return (
@@ -19,17 +25,17 @@ export default function Home() {
         <AuroraTextDemo />
 
         {/* Description */}
-        <p className="text-base sm:text-lg font-medium text-gray-700 dark:text-neutral-300 max-w-2xl leading-relaxed tracking-wide">
+        <p  className={`${poppins.className} text-base text-white sm:text-lg font-medium text-gray-700 dark:text-neutral-300 max-w-2xl leading-relaxed tracking-wide`} >
           Upload your selfies and instantly generate{" "}
-          <span className="text-black dark:text-white font-semibold">
+          <span className="text-black text-white font-semibold">
             AI-powered portraits
           </span>
           ,{" "}
-          <span className="text-black dark:text-white font-semibold">
+          <span className="text-black text-white font-semibold">
             headshots
           </span>
           , and{" "}
-          <span className="text-black dark:text-white font-semibold">
+          <span className="text-black text-white font-semibold">
             creative models
           </span>.
         </p>
