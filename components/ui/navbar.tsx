@@ -1,6 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react"; // use lucide-react icons (or Heroicons)
+import { Geist } from "next/font/google";
+
+const geistSans = Geist({
+  subsets: ["latin"]
+})
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,9 +24,8 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6">
-        {/* Logo */}
         <div
-          className={`text-xl font-bold transition-colors ${
+          className={`${geistSans.className} text-xl font-bold transition-colors ${
             scrolled ? "text-gray-900" : "text-white"
           }`}
         >
@@ -33,7 +37,7 @@ export function Navbar() {
           {["Home", "Gallery", "Pricing", "FAQs"].map((item) => (
             <li
               key={item}
-              className={`cursor-pointer transition-colors ${
+              className={`${geistSans.className} cursor-pointer transition-colors ${
                 scrolled
                   ? "text-gray-800 hover:text-black"
                   : "text-white hover:text-gray-200"
@@ -75,7 +79,7 @@ export function Navbar() {
           {["Home", "Gallery", "Pricing", "FAQs"].map((item) => (
             <span
               key={item}
-              className={`cursor-pointer ${
+              className={`${geistSans.className} cursor-pointer ${
                 scrolled ? "text-gray-800" : "text-white"
               }`}
             >
