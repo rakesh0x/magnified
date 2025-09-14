@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+
 import {
   Card,
   CardContent,
@@ -8,8 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Geist } from "next/font/google";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { Check } from "lucide-react";
 import { RainbowButtonDemo } from "./rainbow-button-buy";
