@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@fal-ai/client": "^1.6.2",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-switch": "^1.2.6",
@@ -31,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@fal-ai/client": "^1.6.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
