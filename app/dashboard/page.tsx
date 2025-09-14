@@ -1,6 +1,6 @@
 "use client"
 
-import ImageTrainerUI from "@/components/ui/collapsible-prompt-window"
+import ImageTrainerUI from "@/components/ui/Collapsible-Prompt-window"
 
 export default function Dashboard() {
     return (
