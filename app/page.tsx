@@ -3,7 +3,7 @@ import { Navbar } from "@/components/ui/navbar";
 import { AuroraTextDemo } from "@/components/magicui/aurora";
 import { InputDemo } from "@/components/ui/waitlist";
 import { AnimatedGradientTextDemo } from "@/components/magicui/Animatedintro";
-import { Poppins, Inter, Geist } from "next/font/google";
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({ 
   subsets: ["latin"],

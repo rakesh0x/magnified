@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+
 import {
   Card,
   CardContent,
@@ -8,8 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Geist } from "next/font/google";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { Check } from "lucide-react";
 import { RainbowButtonDemo } from "./rainbow-button-buy";
@@ -33,13 +31,12 @@ export function ShineBorderDemo({ order }: { order: number }) {
       {(order === 2) && (
         <div className="absolute top-0 right-0 -mt-2 -mr-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full rotate-12 z-10">Popular</div>
       )}
-      {(order === 2) && (
+      {(order === 2 || order === 4) && (
         <ShineBorder borderWidth={borderWidth} duration={duration} shineColor={shineColor} />
       )}
-      <div className="px-6 py-8">
-        <CardHeader className="p-0">
-          <CardTitle className="text-2xl font-bold mb-2">{["Starter Plan", "Creator Plan", "Intermediate Plan", "Enterprise Plan"][order - 1]}</CardTitle>
-          <CardDescription className={`${geistSans.className} text-gray-200 text-sm mb-4`}>
+      <CardHeader className="px-6 py-8">
+        <CardTitle className="text-2xl font-bold mb-2">{["Starter Plan", "Creator Plan", "Intermediate Plan", "Enterprise Plan"][order - 1]}</CardTitle>
+        <CardDescription className={`${geistSans.className} text-gray-200 text-sm mb-4`}>
            { order === 1 && (
                "Get handy with Magnified seamless services in Building AI models"
            )}
@@ -52,8 +49,9 @@ export function ShineBorderDemo({ order }: { order: number }) {
            { order === 4 && (
                "Advanced features and dedicated support for large organizations."
            )}
-          </CardDescription>
-        </CardHeader>
+        </CardDescription>
+      </CardHeader>
+      <div className="relative p-6 pt-0">
         {(order === 1 || order === 2) && <div className="flex items-baseline mb-4">
           <span className="text-4xl font-extrabold">${""}{order === 1 ? "9.00" : "49.00"}</span>
           <span className="text-gray-500 text-base">/monthly</span>
@@ -68,9 +66,9 @@ export function ShineBorderDemo({ order }: { order: number }) {
         </div>}
         <CardFooter className="p-0 mb-6">
           {order === 4 ? (
-            <RainbowButtonDemo className="w-full bg-gray-700 hover:bg-gray-600">Get started</RainbowButtonDemo>
+            <RainbowButtonDemo className="w-full bg-gray-700 hover:bg-gray-600">Contact Sales</RainbowButtonDemo>
           ) : order === 3 ? (
-            <RainbowButtonDemo className="w-full bg-gray-700 hover:bg-gray-600">Get started</RainbowButtonDemo>
+            <RainbowButtonDemo className="w-full bg-gray-700 hover:bg-gray-600">Book Demo</RainbowButtonDemo>
           ) : order === 2 ? (
             <RainbowButtonDemo className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600">Get Started</RainbowButtonDemo>
           ) : (
@@ -89,7 +87,6 @@ export function ShineBorderDemo({ order }: { order: number }) {
                  <li className="flex items-center gap-2"><Check size={18} className="text-purple-400" />Cheapest among the all</li>
                  <li className="flex items-center gap-2"><Check size={18} className="text-purple-400" />Easy to get Handy expereince</li>
                  <li className="flex items-center gap-2"><Check size={18} className="text-purple-400" />Download Images</li>
-                 
                </ul>
              </div>
            )}
@@ -147,7 +144,7 @@ export function ShineBorderDemo({ order }: { order: number }) {
              </div>
            )}
         </CardContent>
-      </div>
-    </Card>
+       </div>
+      </Card>
   );
 }
