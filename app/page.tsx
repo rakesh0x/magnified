@@ -24,7 +24,7 @@ export default function Home() {
         {/* Aurora Subheading */}
         <AuroraTextDemo />
 
-        {/* Description */}
+        {/* Description */} 
         <p  className={`${poppins.className} text-base text-white sm:text-lg font-medium text-gray-700 dark:text-neutral-300 max-w-2xl leading-relaxed tracking-wide`} >
           Upload your selfies and instantly generate{" "}
           <span className="text-black text-white font-semibold">

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -74,7 +75,6 @@ export default function ImageTrainerUI() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-4 p-6 bg-black min-h-screen text-white">
-      {/* Left Panel */}
       <Card
         className={`bg-zinc-900 w-full ${
           rightPanelExpanded ? "lg:w-3/10" : "lg:w-7/10"
