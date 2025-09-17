@@ -46,7 +46,7 @@ export default function DashboardLayout({
   return (
     <div className="flex h-screen">
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10 bg-[#18191a]">
+        <SidebarBody className="justify-between gap-10 bg-[#0a0a0a]">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">

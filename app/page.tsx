@@ -4,6 +4,7 @@ import { AuroraTextDemo } from "@/components/magicui/aurora";
 import { InputDemo } from "@/components/ui/waitlist";
 import { AnimatedGradientTextDemo } from "@/components/magicui/Animatedintro";
 import { Poppins } from "next/font/google";
+import { Auth } from "@/components/ui/onboarding";
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -40,10 +41,10 @@ export default function Home() {
           </span>.
         </p>
 
-        {/* Waitlist / Input */}
-        <div className="w-full max-w-md">
-          <InputDemo />
-        </div>
+          <br/>
+        <div>
+          <Auth/>
+        </div>      
       </div>
     </SpotlightNewDemo>
   );
