@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import { IconArrowLeft, IconBrandTabler, IconSettings, IconUserBolt } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { useUser } from "@clerk/nextjs";
 
 const links = [
   {
@@ -42,6 +43,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const [open, setOpen] = useState(true);
+  const { user } = useUser();
 
   return (
     <div className="flex h-screen">
@@ -58,16 +60,24 @@ export default function DashboardLayout({
           <div>
             <SidebarLink
               link={{
-                label: "User Name",
+                label: "",
                 href: "#",
                 icon: (
-                  <img
-                    src="/magnified.png"
-                    className="h-7 w-7 shrink-0 rounded-full"
-                    width={50}
-                    height={50}
-                    alt="Avatar"
-                  />
+                  <div className="flex items-center gap-2">
+                    <div className="h-7 w-7 shrink-0 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-lg">
+                      {user?.firstName ? user.firstName.charAt(0).toUpperCase() : "R"}
+                    </div>
+                    {open && (
+                      <div className="flex flex-col">
+                        <span className="text-white text-sm">
+                          {user?.fullName || user?.firstName || "User"}
+                        </span>
+                        <span className="text-gray-400 text-xs">
+                          Magnified
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 ),
               }}
             />
