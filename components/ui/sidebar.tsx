@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { useUser } from "@clerk/nextjs";
 
 interface Links {
   label: string;
@@ -56,6 +57,7 @@ export const Sidebar = ({
   open,
   setOpen,
   animate,
+  
 }: {
   children: React.ReactNode;
   open?: boolean;
@@ -84,6 +86,7 @@ export const DesktopSidebar = ({
   ...props
 }: React.ComponentProps<typeof motion.div>) => {
   const { open, setOpen, animate } = useSidebar();
+  const { user } = useUser();
   return (
     <>
       <motion.div
@@ -110,6 +113,7 @@ export const MobileSidebar = ({
   ...props
 }: React.ComponentProps<"div">) => {
   const { open, setOpen } = useSidebar();
+  const { user } = useUser();
   return (
     <>
       <div

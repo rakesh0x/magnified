@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import { IconArrowLeft, IconBrandTabler, IconSettings, IconUserBolt } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { useUser } from "@clerk/nextjs";
+import { User } from "@clerk/nextjs/server";
 
 const links = [
   {
@@ -42,11 +44,12 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const [open, setOpen] = useState(true);
+  const { user } = useUser();
 
   return (
     <div className="flex h-screen">
       <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10 bg-[#18191a]">
+        <SidebarBody className="justify-between gap-10 bg-[#0a0a0a]">
           <div className="flex flex-1 flex-col overflow-x-hidden overflow-y-auto">
             {open ? <Logo /> : <LogoIcon />}
             <div className="mt-8 flex flex-col gap-2">
@@ -58,7 +61,7 @@ export default function DashboardLayout({
           <div>
             <SidebarLink
               link={{
-                label: "User Name",
+                label: user?.fullName || user?.firstName || "User",
                 href: "#",
                 icon: (
                   <img
