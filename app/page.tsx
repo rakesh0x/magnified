@@ -1,27 +1,47 @@
+'use client';
+
 import { SpotlightNewDemo } from "@/components/ui/spotlight";
 import { Navbar } from "@/components/ui/navbar";
 import { AuroraTextDemo } from "@/components/magicui/aurora";
-import { InputDemo } from "@/components/ui/waitlist";
 import { AnimatedGradientTextDemo } from "@/components/magicui/Animatedintro";
 import { Poppins } from "next/font/google";
+import { Auth } from "@/components/ui/onboarding";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { MarqueeDemo } from "@/components/ui/photos-marquee";
+import { Pricing } from "./pricing/pricingpage";
 
-const poppins = Poppins({ 
+const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "700"]
 })
 
 export default function Home() {
+  const { isSignedIn } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (isSignedIn) {
+      router.push('/dashboard');
+    }
+  }, [isSignedIn, router]);
+
   return (
     <SpotlightNewDemo>
       {/* Fixed Navbar */}
       <Navbar />
 
+      <div className="pt-[100px]">
+        <br/>
+        <br/>
+      </div>
+
       {/* Hero Section */}
-      <div className="flex flex-col justify-center items-center h-screen w-full gap-6 px-4 sm:px-6 lg:px-8 text-center">
+      <div className="flex flex-col justify-center items-center gap-6 text-center min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Animated Intro */}
         <AnimatedGradientTextDemo />
 
-        {/* Aurora Subheading */}
         <AuroraTextDemo />
 
         {/* Description */} 
@@ -40,10 +60,18 @@ export default function Home() {
           </span>.
         </p>
 
-        {/* Waitlist / Input */}
-        <div className="w-full max-w-md">
-          <InputDemo />
+          <br/>
+        <div className="w-full max-w-7xl mx-auto">
+          {!isSignedIn && <Auth/>}
+        </div> 
+        <div className="w-full">
+          <MarqueeDemo/>
         </div>
+
+        <div className="w-full">
+          <Pricing/>
+        </div>
+
       </div>
     </SpotlightNewDemo>
   );

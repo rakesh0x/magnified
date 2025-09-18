@@ -4,7 +4,7 @@ import { Spotlight } from "@/components/ui/spotlight-new";
 
 export function SpotlightNewDemo({ children }: { children: React.ReactNode }) {
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
+    <div className="w-full flex items-center justify-center bg-black/[0.96] antialiased bg-grid-white/[0.02] relative overflow-hidden">
       <Spotlight />
       <div className="p-4 max-w-7xl mx-auto relative z-10 w-full">
         {children}
