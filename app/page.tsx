@@ -5,6 +5,7 @@ import { InputDemo } from "@/components/ui/waitlist";
 import { AnimatedGradientTextDemo } from "@/components/magicui/Animatedintro";
 import { Poppins } from "next/font/google";
 import { Auth } from "@/components/ui/onboarding";
+import { SignedOut } from '@clerk/nextjs';
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -43,7 +44,9 @@ export default function Home() {
 
           <br/>
         <div>
-          <Auth/>
+          <SignedOut>
+            <Auth/>
+          </SignedOut>
         </div>      
       </div>
     </SpotlightNewDemo>

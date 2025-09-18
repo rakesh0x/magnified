@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
 import { IconArrowLeft, IconBrandTabler, IconSettings, IconUserBolt } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
+import { useUser } from "@clerk/nextjs";
+import { User } from "@clerk/nextjs/server";
 
 const links = [
   {
@@ -42,6 +44,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }>) {
   const [open, setOpen] = useState(true);
+  const { user } = useUser();
 
   return (
     <div className="flex h-screen">
@@ -58,7 +61,7 @@ export default function DashboardLayout({
           <div>
             <SidebarLink
               link={{
-                label: "User Name",
+                label: user?.fullName || user?.firstName || "User",
                 href: "#",
                 icon: (
                   <img
