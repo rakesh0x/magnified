@@ -1,4 +1,4 @@
-
+"use client"
 import {
   Card,
   CardContent,
@@ -16,7 +16,9 @@ const geistSans = Geist({
   subsets: ['latin']
 })
 
-export function ShineBorderDemo({ order }: { order: number }) {
+export function PricingCard({
+  order,
+}: { order: number }) {
   const borderWidth = 1 + order;
   const duration = 10 - order; 
   const shineColor = [
@@ -27,7 +29,7 @@ export function ShineBorderDemo({ order }: { order: number }) {
   ][order - 1];
 
   return (
-    <Card className={`relative max-w-[400px] w-full gap-8 bg-[#0a0a0a] text-white transition-all duration-300 rounded-lg border border-gray-700 h-full`}>
+    <Card className={`relative  w-full gap-8 bg-[#0a0a0a] text-white transition-all duration-300 rounded-lg border border-gray-700 h-full`}>
       {(order === 2) && (
         <div className="absolute top-0 right-0 -mt-2 -mr-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full rotate-12 z-10">Popular</div>
       )}
@@ -146,5 +148,17 @@ export function ShineBorderDemo({ order }: { order: number }) {
         </CardContent>
        </div>
       </Card>
+  );
+}
+
+export function PricingPage() {
+  return (
+    <div className="flex flex-col items-center justify-center gap-10 p-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        {[1, 2, 3, 4].map((order) => (
+          <PricingCard key={order} order={order} />
+        ))}
+      </div>
+    </div>
   );
 }

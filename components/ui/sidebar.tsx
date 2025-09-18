@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { SignOutButton } from "@clerk/nextjs";
 
 interface Links {
   label: string;
@@ -98,7 +99,19 @@ export const DesktopSidebar = ({
         onMouseLeave={() => setOpen(false)}
         {...props}
       >
-        {children}
+        {children as React.ReactNode}
+        <div className="mt-auto">
+          <SidebarLink
+            link={{
+              label: "Logout",
+              href: "/", // Redirect to home after logout
+              icon: <IconX />,
+            }}
+            className="mt-auto"
+          >
+            <SignOutButton />
+          </SidebarLink>
+        </div>
       </motion.div>
     </>
   );
@@ -146,6 +159,18 @@ export const MobileSidebar = ({
                 <IconX />
               </div>
               {children}
+              <div className="mt-auto">
+                <SidebarLink
+                  link={{
+                    label: "Logout",
+                    href: "/", // Redirect to home after logout
+                    icon: <IconX />,
+                  }}
+                  className="mt-auto"
+                >
+                  <SignOutButton />
+                </SidebarLink>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -157,10 +182,12 @@ export const MobileSidebar = ({
 export const SidebarLink = ({
   link,
   className,
+  children,
   ...props
 }: {
   link: Links;
   className?: string;
+  children?: React.ReactNode;
 }) => {
   const { open, animate } = useSidebar();
   return (
@@ -183,6 +210,7 @@ export const SidebarLink = ({
       >
         {link.label}
       </motion.span>
+      {children}
     </a>
   );
 };
