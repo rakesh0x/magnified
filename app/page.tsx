@@ -48,7 +48,6 @@ export default function Home() {
           <AnimatedGradientTextDemo />
           <AuroraTextDemo />
 
-          {/* Description */}
           <p
             className={`${poppins.className} text-base text-white sm:text-lg font-medium text-gray-700 dark:text-neutral-300 max-w-2xl leading-relaxed tracking-wide`}
           >
@@ -127,9 +126,16 @@ export default function Home() {
         <FlickeringGridDemo className="absolute inset-0 w-full h-full" />
         <div className="relative z-10 w-full px-6 py-20 flex flex-col items-center gap-16">
           <Testimonials />
-          <Pricing />
+        
+        </div>
+        <br/>
+        <br/>
+        <div>
+          <Pricing/>
         </div>
       </section>
+
+      
     </>
   );
 }
