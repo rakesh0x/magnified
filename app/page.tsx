@@ -15,6 +15,7 @@ import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { AnimatedNumberBasic } from "@/components/magicui/animated-numbers";
 import { Testimonials } from "@/components/ui/testinomials";
 import { FlickeringGridDemo } from "@/components/ui/flickering-grid-layout";
+import { Footer } from "@/components/ui/footer";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -34,7 +35,6 @@ export default function Home() {
   return (
     <>
       <SpotlightNewDemo>
-        {/* Fixed Navbar */}
         <Navbar />
 
         <div className="pt-[100px]">
@@ -42,7 +42,6 @@ export default function Home() {
           <br />
         </div>
 
-        {/* Hero Section */}
         <div className="flex flex-col justify-center items-center gap-6 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Animated Intro */}
           <AnimatedGradientTextDemo />
@@ -73,7 +72,6 @@ export default function Home() {
             <MarqueeDemo />
           </div>
 
-          {/* How it works section */}
           <section className="py-20 w-full">
             <h2 className="text-center text-4xl font-bold text-white mb-4">
               How It <span className="text-purple-500">Works</span>
@@ -115,12 +113,10 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Animated Numbers */}
           <AnimatedNumberBasic />
         </div>
       </SpotlightNewDemo>
 
-      {/* FULL WIDTH Flickering Grid Section */}
       <section className="relative w-full min-h-screen">
         {/* Fullscreen background */}
         <FlickeringGridDemo className="absolute inset-0 w-full h-full" />
@@ -131,7 +127,16 @@ export default function Home() {
         <br/>
         <br/>
         <div>
+          <span><h1 className="text-5xl font-bold text-white justify-center item-center mt-20 flex">Pricing</h1></span>
+          <br/>
           <Pricing/>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div>
+          <Footer/>
         </div>
       </section>
 
