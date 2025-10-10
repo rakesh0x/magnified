@@ -43,7 +43,6 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col justify-center items-center gap-6 text-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* Animated Intro */}
           <AnimatedGradientTextDemo />
           <AuroraTextDemo />
 
